@@ -14,7 +14,7 @@ export default function Event() {
     <div className="flex items-center flex-col flex-1 h-screen">
       <Header/>
       <main className="w-full flex flex-1 justify-between">
-        {slug ? <Video lessonSlug={slug}/> : <div className="flex-1"></div>}
+        {slug ? <Video lessonSlug={slug}/> : <div className="flex-1 bg-blur bg-purple"></div>}
         <Sidebar />
       </main>
     </div>

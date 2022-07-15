@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        blur: 'url(/src/assets/blur.png)',
+        screen: 'url(/src/assets/screen.png)'
+      },
       colors: {
         purple: '#6400B3'
       },
