@@ -36,6 +36,7 @@ export default function Sidebar() {
       <main className="flex flex-col gap-8">
         {data?.lessons.map(lesson => {
           return <Lesson 
+          key={lesson.id}
           availableAt={new Date(lesson.availableAt)} 
           type={lesson.lessonType} 
           title={lesson.title} 

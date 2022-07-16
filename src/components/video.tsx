@@ -6,7 +6,7 @@ import {
   Lightning,
 } from "phosphor-react";
 import "@vime/core/themes/default.css";
-import { DefaultUi, Player, Youtube } from "@vime/react";
+import { DefaultUi, Embed, Player, Youtube } from "@vime/react";
 
 import Footer from "./footer";
 import { gql, useQuery } from "@apollo/client";
@@ -54,19 +54,21 @@ export default function Video(props: iprops) {
     variables: { slug: props.lessonSlug },
   });
 
-  if(!data) {
+  if (!data) {
     return (
-      <div className="flex-1"><p>Carregando</p></div>
-    )
+      <div className="flex-1">
+        <p>Carregando</p>
+      </div>
+    );
   }
-  
+
   return (
     <div className="flex-1 overflow-auto">
       <div className="bg-black flex justify-center">
         <div className="bg-gray-600 w-full max-w-[1100px] max-h-[60vh] h-full aspect-video">
-          <Player>
-            <Youtube videoId={data.lesson.videoId} />
-            <DefaultUi />
+          <Player controls>
+            <Youtube videoId={data.lesson.videoId}>
+            </Youtube>
           </Player>
         </div>
       </div>
@@ -86,7 +88,7 @@ export default function Video(props: iprops) {
               <DiscordLogo /> Comunidade do discord
             </a>
             <a
-              href={data.lesson.challenge.url? data.lesson.challenge.url: ""}
+              href={data.lesson.challenge.url ? data.lesson.challenge.url : ""}
               className="flex items-center justify-center gap-[10px] border text-blue-300 border-blue-300 rounded hover:bg-blue-300 hover:text-gray-900 transition w-[235px] px-[14px] py-[17px]"
             >
               <Lightning /> Acesse o desafio

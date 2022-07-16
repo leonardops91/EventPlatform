@@ -21,7 +21,7 @@ export default function Lesson(props: iProps) {
   );
 
   return (
-    <div className={!isAvailable ? 'pointer-events-none' : '' }>
+    <div className={!isAvailable || isLessonActive ? 'pointer-events-none' : '' }>
       <Link to={`/event/lesson/${props.slug}`} className="group">
         <span className="text-gray-400 mb-2 block">
           {formatedAvailableAt.toString()}

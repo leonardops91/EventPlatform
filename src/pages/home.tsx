@@ -35,7 +35,7 @@ export default function Home() {
   }
 
   return (
-    <div className="border border-red-500 flex flex-col gap-10 justify-between bg-blur bg-purple bg-cover w-full max-h-screen overflow-hidden px-[112px] pt-[112px]">
+    <div className="border flex flex-col gap-10 justify-between bg-blur bg-purple bg-cover w-full max-h-screen overflow-hidden px-[112px] pt-[112px]">
       <div className="flex justify-between">
         <div className="flex flex-col gap-4">
           <Logo width="200" height="35" />
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <div className="bg-screen rounded bg-cover w-full h-[420px] border-x border-t border-gray-400"></div>
+        <div className="bg-screen rounded bg-cover bg-center w-full h-[420px] border-x border-t border-gray-400"></div>
       </div>
     </div>
   );
