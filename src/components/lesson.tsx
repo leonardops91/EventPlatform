@@ -22,7 +22,7 @@ export default function Lesson(props: iProps) {
 
   return (
     <div className={!isAvailable || isLessonActive ? 'pointer-events-none' : '' }>
-      <Link to={`/event/lesson/${props.slug}`} className="group">
+      <Link to={`/event/lesson/${props.slug}`} onClick={() => window.scrollTo(0,0)} className="group">
         <span className="text-gray-400 mb-2 block">
           {formatedAvailableAt.toString()}
         </span>

@@ -1,26 +1,16 @@
-import { gql, useMutation } from "@apollo/client";
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../components/logo";
+import { useCreateSubscriberMutation } from "../graphql/generated";
 
-const CREATE_SUBSCRIBER_MUTATION = gql`
-  mutation CreateSubscriber($email: String!, $name: String!) {
-    createSubscriber(data: { name: $name, email: $email }) {
-      id
-    }
-  }
-`;
 
 export default function Home() {
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  
 
-  const [createSubscriber, { loading }] = useMutation(
-    CREATE_SUBSCRIBER_MUTATION
-  );
+  const [createSubscriber, {loading}] = useCreateSubscriberMutation()
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -31,7 +21,7 @@ export default function Home() {
         email,
       },
     });
-    navigate('/event')
+    navigate("/event");
   }
 
   return (
@@ -52,29 +42,38 @@ export default function Home() {
           <strong className="text-2xl mb-3">Inscreva-se no evento</strong>
           <form className="flex flex-col w-full gap-3" onSubmit={handleSubmit}>
             <input
+              disabled={loading}
               onChange={(e) => setName(e.target.value)}
-              className="bg-neutral-900 rounded-md p-5"
+              className="bg-neutral-900 rounded-md p-5 disabled:opacity-50"
               type="text"
               placeholder="Digite seu nome"
             />
             <input
+              disabled={loading}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-neutral-900 rounded-md p-5"
+              className="bg-neutral-900 rounded-md p-5 disabled:opacity-50"
               type="text"
               placeholder="Digite seu email"
             />
             <button
               disabled={loading}
-              className="disabled:opacity-50 bg-purple rounded-md p-5 hover:bg-violet-900 transition"
+              className="disabled:opacity-50 bg-purple rounded-md p-5 hover:bg-violet-900 transition flex items-center justify-center h-16"
               type="submit"
             >
-              Garantir minha vaga
+              {loading ? (
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 border-x-2 border-white rounded-full"
+                  viewBox="0 0 24 24"
+                ></svg>
+              ) : (
+                "Garantir minha vaga"
+              )}
             </button>
           </form>
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <div className="bg-screen rounded bg-cover bg-center w-full h-[420px] border-x border-t border-gray-400"></div>
+        <div className="bg-screen rounded bg-cover bg-top w-full h-[420px] border-x border-t border-gray-400"></div>
       </div>
     </div>
   );
