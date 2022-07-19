@@ -1,4 +1,6 @@
 import {
+  CaretCircleDoubleDown,
+  CaretDoubleDown,
   CaretRight,
   DiscordLogo,
   FileArrowDown,
@@ -8,8 +10,10 @@ import {
 import "@vime/core/themes/default.css";
 import ReactPlayer from "react-player/youtube";
 import { useGetLessonBySlugQuery } from "../graphql/generated";
+import { MouseEvent } from "react";
 
 import Footer from "./footer";
+import React, { useEffect, useState } from "react";
 
 interface iprops {
   lessonSlug: string;
@@ -19,6 +23,7 @@ export default function Video(props: iprops) {
   const { data } = useGetLessonBySlugQuery({
     variables: { slug: props.lessonSlug },
   });
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
 
   if (!data || !data.lesson) {
     return (
@@ -27,6 +32,20 @@ export default function Video(props: iprops) {
       </div>
     );
   }
+
+  function handleClick() {
+    const info = document.getElementById('info')
+
+    if(info && isInfoOpen){
+      info.classList.remove('block')
+      info.classList.add('hidden')
+    }else if(info) {
+      info.classList.remove('hidden')
+      info.classList.add('block')
+    }
+    setIsInfoOpen(!isInfoOpen)
+  }
+  
 
   return (
     <div className="flex-1">
@@ -41,7 +60,17 @@ export default function Video(props: iprops) {
           />
         </div>
       </div>
-      <div className=" p-8">
+
+      <div
+        onClick={handleClick}
+        className={` ${
+          isInfoOpen && "scale-y-[-1]"
+        } transition flex items-center justify-center w-full h-16 border border-gray-700 hover:bg-gray-800 xl:hidden`}
+      >
+        <CaretDoubleDown size={30} />
+      </div>
+
+      <div id="info" className={` p-8 ${!isInfoOpen && 'hidden'} xl:block`}>
         {/* Informations, community and challenge */}
         <div className="flex flex-col flex-1 gap-14 md:flex-row">
           <div className="flex flex-1 flex-col ">
