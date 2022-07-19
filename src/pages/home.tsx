@@ -25,12 +25,12 @@ export default function Home() {
   }
 
   return (
-    <div className="border flex flex-col gap-10 justify-between bg-blur bg-purple bg-cover w-full max-h-screen overflow-hidden px-[112px] pt-[112px]">
-      <div className="flex justify-between">
-        <div className="flex flex-col gap-4">
+    <div className=" flex flex-col gap-10 justify-between bg-blur bg-purple bg-cover w-full max-h-screen overflow-hidden px-28 pt-28">
+      <div className="flex flex-col items-center justify-center gap-10 lg:flex-row lg:justify-between">
+        <div className="flex flex-col items-center gap-4 text-center lg:py-10 lg:items-baseline lg:text-left">
           <Logo width="200" height="35" />
-          <div className="w-[420px] ">
-            <strong className="text-4xl">Inscreva-se já no evento</strong>
+          <div className="w-[420px]">
+            <strong className="text-4xl ">Inscreva-se já no evento</strong>
             <p className="mt-2">
               Aqui você terá acesso a todas as aulas exclusívas que serão
               lançadas durante a semana, além de materiais extras e desafios
@@ -39,9 +39,10 @@ export default function Home() {
           </div>
         </div>
         <div className="bg-opacity-25 p-8 border-2 border-gray-500 rounded bg-gray-800 w-[420px] flex flex-col items-center justify-center gap-3">
-          <strong className="text-2xl mb-3">Inscreva-se no evento</strong>
+          <strong className="text-2xl mb-3">Inscrição do evento</strong>
           <form className="flex flex-col w-full gap-3" onSubmit={handleSubmit}>
             <input
+              required
               disabled={loading}
               onChange={(e) => setName(e.target.value)}
               className="bg-neutral-900 rounded-md p-5 disabled:opacity-50"
@@ -49,6 +50,7 @@ export default function Home() {
               placeholder="Digite seu nome"
             />
             <input
+              required
               disabled={loading}
               onChange={(e) => setEmail(e.target.value)}
               className="bg-neutral-900 rounded-md p-5 disabled:opacity-50"
