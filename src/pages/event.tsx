@@ -11,12 +11,15 @@ export default function Event() {
   return (
     <div className="flex items-center flex-col flex-1 h-full bg-no-repeat">
       <Header />
-      <main className="w-full flex flex-col flex-1 justify-between xl:flex-row">
-        <div>
+      <main className="w-full flex flex-col flex-1 justify-between xl:flex-row ">
+        <div className="w-full">
           {slug ? (
             <Video lessonSlug={slug} />
           ) : (
-            <div className="flex-1 bg-blur bg-purple"></div>
+            <div className="flex flex-1 flex-col items-center pt-11 h-full w-full bg-blur bg-purple">
+              <p className="text-3xl">Seja bem vindo à área do evento</p>
+              <p className="text-2xl">Escolha uma aula e bons estudos!</p>
+              </div>
           )}
 
         </div>
