@@ -16,7 +16,7 @@ export default function Event() {
           {slug ? (
             <Video lessonSlug={slug} />
           ) : (
-            <div className="flex flex-1 flex-col items-center pt-11 h-full w-full bg-blur bg-purple">
+            <div className="hidden lg:flex lg:flex-1 lg:flex-col lg:items-center pt-11 h-full w-full bg-blur bg-purple">
               <p className="text-3xl">Seja bem vindo à área do evento</p>
               <p className="text-2xl">Escolha uma aula e bons estudos!</p>
               </div>

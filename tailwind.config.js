@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         blur: 'url(/src/assets/blur.png)',
-        screen: 'url(/src/assets/screen.png)'
+        screen: 'url(/src/assets/wellcome.png)'
       },
       colors: {
         purple: '#6400B3'
