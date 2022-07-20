@@ -1,26 +1,38 @@
+import { ApolloError } from "@apollo/client";
+import { NetworkError } from "@apollo/client/errors";
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../components/logo";
-import { useCreateSubscriberMutation } from "../graphql/generated";
-
+import {
+  useCreateSubscriberMutation,
+} from "../graphql/generated";
 
 export default function Home() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isUnknownError, setIsUnknownError] = useState(false)
 
-  const [createSubscriber, {loading}] = useCreateSubscriberMutation()
+
+  const [createSubscriber, { loading }] = useCreateSubscriberMutation();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    try {
+      await createSubscriber({
+        variables: {
+          name,
+          email,
+        },
+      });
+    } catch (error: any) {
+      if(error.networkError.statusCode != 400){
+        setIsUnknownError(true)
+        return
+      }
+    }
 
-    await createSubscriber({
-      variables: {
-        name,
-        email,
-      },
-    });
     navigate("/event");
   }
 
@@ -30,7 +42,9 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4 text-center lg:py-10 lg:items-baseline lg:text-left">
           <Logo width="200" height="35" />
           <div className="w-[420px]">
-            <strong className="text-2xl sm:text-4xl ">Inscreva-se já no evento</strong>
+            <strong className="text-2xl sm:text-4xl ">
+              Inscreva-se já no evento
+            </strong>
             <p className="mt-4 px-10 sm:px-0">
               Aqui você terá acesso a todas as aulas exclusívas que serão
               lançadas durante a semana, além de materiais extras e desafios
@@ -72,6 +86,7 @@ export default function Home() {
               )}
             </button>
           </form>
+        <span className="text-center">{isUnknownError && 'Um erro inesperado aconteceu, tente novamente'}</span>
         </div>
       </div>
       <div className="flex items-center justify-center">

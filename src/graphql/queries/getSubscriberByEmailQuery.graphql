@@ -1,0 +1,6 @@
+query GetSubscriberByEmail($email: String) {
+  subscriber(where: {email: $email}) {
+    id
+    name
+  }
+}
