@@ -122,7 +122,7 @@ export default function Video(props: iprops) {
             </div>
             <div className="px-6 w-fit text-left flex flex-col flex-1">
               <strong>Material complementar</strong>
-              <p>Acesse o material da aula e continue estudando</p>
+              <p>Acesse o material da aula</p>
             </div>
             <div className="py-12 pr-6">
               <CaretRight />
@@ -138,8 +138,7 @@ export default function Video(props: iprops) {
             <div className="px-6 w-fit text-left flex flex-col flex-1">
               <strong>Wallpapers exclusivos</strong>
               <p className="overflow-auto">
-                Baixe wallpapers exclusivos da semana e personalize a sua área
-                de trabalho
+                Baixe wallpapers exclusivos da semana
               </p>
             </div>
             <div className="py-12 pr-6">

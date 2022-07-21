@@ -37,7 +37,7 @@ export default function Home() {
   }
 
   return (
-    <div className=" flex flex-col gap-10 justify-between bg-blur bg-purple bg-cover w-full min-h-screen overflow-hidden  pt-7 sm:pt-28 sm:px-28">
+    <div className=" flex flex-col gap-10 justify-between bg-blur bg-purple bg-cover w-full min-h-screen overflow-hidden pt-7 sm:pt-28 sm:px-28">
       <div className="flex flex-col items-center justify-center sm:gap-10 lg:flex-row lg:justify-between">
         <div className="flex flex-col items-center gap-4 text-center lg:py-10 lg:items-baseline lg:text-left">
           <Logo width="200" height="35" />
