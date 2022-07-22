@@ -1252,8 +1252,8 @@ export type Lesson = Node & {
   updatedAt: Scalars['DateTime'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
-  /** The ID of the Youtube video. */
-  videoId: Scalars['String'];
+  /** The URL of the Youtube video. */
+  videoURL: Scalars['String'];
 };
 
 
@@ -1333,7 +1333,7 @@ export type LessonCreateInput = {
   teacher?: InputMaybe<TeacherCreateOneInlineInput>;
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
-  videoId: Scalars['String'];
+  videoURL: Scalars['String'];
 };
 
 export type LessonCreateManyInlineInput = {
@@ -1520,25 +1520,25 @@ export type LessonManyWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   updatedBy?: InputMaybe<UserWhereInput>;
-  videoId?: InputMaybe<Scalars['String']>;
+  videoURL?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
-  videoId_contains?: InputMaybe<Scalars['String']>;
+  videoURL_contains?: InputMaybe<Scalars['String']>;
   /** All values ending with the given string. */
-  videoId_ends_with?: InputMaybe<Scalars['String']>;
+  videoURL_ends_with?: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
-  videoId_in?: InputMaybe<Array<Scalars['String']>>;
+  videoURL_in?: InputMaybe<Array<Scalars['String']>>;
   /** All values that are not equal to given value. */
-  videoId_not?: InputMaybe<Scalars['String']>;
+  videoURL_not?: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
-  videoId_not_contains?: InputMaybe<Scalars['String']>;
+  videoURL_not_contains?: InputMaybe<Scalars['String']>;
   /** All values not ending with the given string */
-  videoId_not_ends_with?: InputMaybe<Scalars['String']>;
+  videoURL_not_ends_with?: InputMaybe<Scalars['String']>;
   /** All values that are not contained in given list. */
-  videoId_not_in?: InputMaybe<Array<Scalars['String']>>;
+  videoURL_not_in?: InputMaybe<Array<Scalars['String']>>;
   /** All values not starting with the given string. */
-  videoId_not_starts_with?: InputMaybe<Scalars['String']>;
+  videoURL_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
-  videoId_starts_with?: InputMaybe<Scalars['String']>;
+  videoURL_starts_with?: InputMaybe<Scalars['String']>;
 };
 
 export enum LessonOrderByInput {
@@ -1560,8 +1560,8 @@ export enum LessonOrderByInput {
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
-  VideoIdAsc = 'videoId_ASC',
-  VideoIdDesc = 'videoId_DESC'
+  VideoUrlAsc = 'videoURL_ASC',
+  VideoUrlDesc = 'videoURL_DESC'
 }
 
 export enum LessonType {
@@ -1577,7 +1577,7 @@ export type LessonUpdateInput = {
   slug?: InputMaybe<Scalars['String']>;
   teacher?: InputMaybe<TeacherUpdateOneInlineInput>;
   title?: InputMaybe<Scalars['String']>;
-  videoId?: InputMaybe<Scalars['String']>;
+  videoURL?: InputMaybe<Scalars['String']>;
 };
 
 export type LessonUpdateManyInlineInput = {
@@ -1602,7 +1602,7 @@ export type LessonUpdateManyInput = {
   description?: InputMaybe<Scalars['String']>;
   lessonType?: InputMaybe<LessonType>;
   title?: InputMaybe<Scalars['String']>;
-  videoId?: InputMaybe<Scalars['String']>;
+  videoURL?: InputMaybe<Scalars['String']>;
 };
 
 export type LessonUpdateManyWithNestedWhereInput = {
@@ -1809,25 +1809,25 @@ export type LessonWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   updatedBy?: InputMaybe<UserWhereInput>;
-  videoId?: InputMaybe<Scalars['String']>;
+  videoURL?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
-  videoId_contains?: InputMaybe<Scalars['String']>;
+  videoURL_contains?: InputMaybe<Scalars['String']>;
   /** All values ending with the given string. */
-  videoId_ends_with?: InputMaybe<Scalars['String']>;
+  videoURL_ends_with?: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
-  videoId_in?: InputMaybe<Array<Scalars['String']>>;
+  videoURL_in?: InputMaybe<Array<Scalars['String']>>;
   /** All values that are not equal to given value. */
-  videoId_not?: InputMaybe<Scalars['String']>;
+  videoURL_not?: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
-  videoId_not_contains?: InputMaybe<Scalars['String']>;
+  videoURL_not_contains?: InputMaybe<Scalars['String']>;
   /** All values not ending with the given string */
-  videoId_not_ends_with?: InputMaybe<Scalars['String']>;
+  videoURL_not_ends_with?: InputMaybe<Scalars['String']>;
   /** All values that are not contained in given list. */
-  videoId_not_in?: InputMaybe<Array<Scalars['String']>>;
+  videoURL_not_in?: InputMaybe<Array<Scalars['String']>>;
   /** All values not starting with the given string. */
-  videoId_not_starts_with?: InputMaybe<Scalars['String']>;
+  videoURL_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
-  videoId_starts_with?: InputMaybe<Scalars['String']>;
+  videoURL_starts_with?: InputMaybe<Scalars['String']>;
 };
 
 /** References Lesson record uniquely */
@@ -5581,7 +5581,7 @@ export type GetLessonBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetLessonBySlugQuery = { __typename?: 'Query', lesson?: { __typename?: 'Lesson', description?: string | null, title: string, videoId: string, challenge?: { __typename?: 'Challenge', url: string } | null, teacher?: { __typename?: 'Teacher', avatarURL: string, bio: string, name: string } | null } | null };
+export type GetLessonBySlugQuery = { __typename?: 'Query', lesson?: { __typename?: 'Lesson', description?: string | null, title: string, videoURL: string, challenge?: { __typename?: 'Challenge', url: string } | null, teacher?: { __typename?: 'Teacher', avatarURL: string, bio: string, name: string } | null } | null };
 
 export type GetLessonsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5643,7 +5643,7 @@ export const GetLessonBySlugDocument = gql`
       name
     }
     title
-    videoId
+    videoURL
   }
 }
     `;

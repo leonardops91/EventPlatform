@@ -53,7 +53,7 @@ export default function Video(props: iprops) {
             controls
             width="100%"
             height="100%"
-            url={`https://www.youtube.com/watch?v=${data.lesson.videoId}`}
+            url={`${data.lesson.videoURL}`}
           />
         </div>
       </div>
