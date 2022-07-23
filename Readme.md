@@ -55,13 +55,13 @@ Abaixo segue algumas telas e suas variações para dispositivos móveis:
 
 #### **Tela Event depois de escolher aula**
 #### Desktop
-<img src="src\assets\src\assets\platform.png" >
+<img src="src\assets\platform.png" >
 
 #### Tablet
-<img src="src\assets\src\assets\platform-tablet.png" >
+<img src="src\assets\platform-tablet.png" >
 
 #### Smartphone
-<img src="src\assets\src\assets\platform-mobile.png" >
+<img src="src\assets\platform-mobile.png" >
 
 *Os videos utilizados foram conseguidos no Youtube e servem meramente para exemplificar o layout final do projeto
 
@@ -119,7 +119,14 @@ npm run dev
 
 ## 🎯 Deployment
 Para experimentar a plataforma, pode ser acessado o deploy da aplicação exemplo através do link:<br>
-[Event Platform](event-platform-six-murex.vercel.app)
+**[Event Platform](https://event-platform-six-murex.vercel.app/)**
 <br>
 <br>
-Developed by <a href="https://www.linkedin.com/in/leonardosouza-dev/">Leonardo Souza</a>
+
+## 🔗 Licença
+
+Esse projeto é licenciado pelo MIT License - clique em [LICENSE.md](https://github.com/leonardops91/EventPlatform/blob/master/LICENSE.md)
+para mais detalhes.
+<br>
+<br>
+Developed by **<a href="https://www.linkedin.com/in/leonardosouza-dev/">Leonardo Souza</a>**
