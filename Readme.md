@@ -9,10 +9,12 @@
 <div align="center">
  <a href="#-Descriçao">Visão Geral</a> •
  <a href="#-Apresentação">Apresentação</a> •
- <a href="#-layout">Layout</a> •
- <a href="#-tecnologias">Tecnologias</a> •
- <a href="#-rodando">Rodando</a> •
- <a href="#-ferramentas">Ferramentas</a> •
+ <a href="#-Layout">Layout</a> •
+ <a href="#-tTecnologias">Tecnologias</a> •
+ <a href="#-Rodando">Rodando</a> •
+ <a href="#-Ferramentas">Ferramentas</a> •
+ <a href="#-Deployment">Deployment</a> •
+ <a href="#-Licença">Licença</a>
 </div>
 <br>
 <br>
